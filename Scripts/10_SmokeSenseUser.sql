@@ -1,0 +1,22 @@
+/*NOTE: BEFORE RUNNING THIS STORED PROECURE, 
+CHANGE THE NAME OF YOUR DATABASE ON LINES 7, 11, 15, and 19 */
+USE [master]
+GO
+CREATE LOGIN [SmokeSense] WITH PASSWORD=N'Sm0k3Expl0r3r!', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=ON
+GO
+USE [SmokeSense_MyTest1]
+GO
+CREATE USER [SmokeSense] FOR LOGIN [SmokeSense]
+GO
+USE [SmokeSense_MyTest1]
+GO
+ALTER ROLE [db_datareader] ADD MEMBER [SmokeSense]
+GO
+USE [SmokeSense_MyTest1]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [SmokeSense]
+GO
+USE [SmokeSense_MyTest1]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [SmokeSense]
+GO
